@@ -1,4 +1,4 @@
-# 🎓 Tutorial: Unit Testing Angular avec Vitest
+# Tutorial: Unit Testing Angular avec Vitest
 
 > **Formation Progressive** - Du débutant à l'expert  
 > **Durée estimée**: 4-6 heures (répartie sur plusieurs sessions)  
@@ -6,7 +6,7 @@
 
 ---
 
-## 📚 Table des Matières
+##  Table des Matières
 
 1. [Session 1: Introduction aux Tests Unitaires](#session-1-introduction-aux-tests-unitaires)
 2. [Session 2: Tester les Services Simples](#session-2-tester-les-services-simples)
@@ -14,14 +14,14 @@
 4. [Session 4: Interactions Utilisateur (Clics, Inputs)](#session-4-interactions-utilisateur)
 5. [Session 5: Tests Asynchrones](#session-5-tests-asynchrones)
 6. [Session 6: Mocking et Spies avec Vitest](#session-6-mocking-et-spies)
-7. [🧩 Exercices Pratiques avec Solutions](#exercices-pratiques)
-8. [🎯 Quiz & Pièges Courants](#quiz-et-pièges)
+7. [ Exercices Pratiques avec Solutions](#exercices-pratiques)
+8. [ Quiz & Pièges Courants](#quiz-et-pièges)
 
 ---
 
 # Session 1: Introduction aux Tests Unitaires
 
-## 🎯 Objectifs
+##  Objectifs
 - Comprendre pourquoi tester
 - Installer et configurer Vitest
 - Écrire votre premier test
@@ -30,10 +30,10 @@
 
 ```
 Sans tests:
-Code → 🙏 Espérer que ça marche → Production → 💥 Bugs
+Code → 🙏 Espérer que ça marche → Production →  Bugs
 
 Avec tests:
-Code → ✅ Tests automatisés → 🛡️ Confiance → Production → 😌 Sérénité
+Code → ✅ Tests automatisés →  Confiance → Production → 😌 Sérénité
 ```
 
 ## 1.2 Structure d'un test
@@ -42,7 +42,7 @@ Chaque test suit le pattern **AAA** (Arrange, Act, Assert):
 
 ```typescript
 it('should add two numbers', () => {
-  // 🔧 ARRANGE - Préparer les données
+  //  ARRANGE - Préparer les données
   const a = 5;
   const b = 3;
   
@@ -82,12 +82,12 @@ describe('Opérations mathématiques', () => {
 });
 ```
 
-### 🎯 Exercice Session 1
+###  Exercice Session 1
 
 Écrivez un test qui vérifie que `10 / 2` égale `5`.
 
 <details>
-<summary>💡 Solution</summary>
+<summary> Solution</summary>
 
 ```typescript
 it('should return 5 when dividing 10 / 2', () => {
@@ -100,7 +100,7 @@ it('should return 5 when dividing 10 / 2', () => {
 
 # Session 2: Tester les Services Simples
 
-## 🎯 Objectifs
+##  Objectifs
 - Tester un service Angular
 - Utiliser les assertions courantes
 - Comprendre `beforeEach`
@@ -136,7 +136,7 @@ import { CalculatorService } from './calculator.service';
 describe('CalculatorService', () => {
   let service: CalculatorService;
 
-  // ⚡ Exécuté AVANT chaque test
+  //  Exécuté AVANT chaque test
   beforeEach(() => {
     service = new CalculatorService();
   });
@@ -186,7 +186,7 @@ describe('CalculatorService', () => {
 ```typescript
 // ❌ INCORRECT - L'erreur est levée AVANT toThrow()
 it('BAD - throws immediately', () => {
-  expect(service.divide(10, 0)).toThrow(); // 💥 CRASH!
+  expect(service.divide(10, 0)).toThrow(); //  CRASH!
 });
 
 // ✅ CORRECT - Envelopper dans une fonction fléchée
@@ -195,7 +195,7 @@ it('GOOD - catches the error', () => {
 });
 ```
 
-### 🧩 Quiz Rapide
+###  Quiz Rapide
 
 **Question**: Pourquoi ce test échoue-t-il ?
 
@@ -206,7 +206,7 @@ it('test décimaux', () => {
 ```
 
 <details>
-<summary>💡 Réponse</summary>
+<summary> Réponse</summary>
 
 En JavaScript, `0.1 + 0.2 = 0.30000000000000004` à cause de la précision des nombres flottants.
 
@@ -220,7 +220,7 @@ expect(0.1 + 0.2).toBeCloseTo(0.3, 10);
 
 # Session 3: Tester les Composants UI
 
-## 🎯 Objectifs
+##  Objectifs
 - Configurer TestBed
 - Accéder aux éléments du DOM
 - Tester l'affichage initial
@@ -328,7 +328,7 @@ describe('CounterComponent', () => {
 
 # Session 4: Interactions Utilisateur
 
-## 🎯 Objectifs
+##  Objectifs
 - Simuler des clics
 - Simuler des saisies clavier
 - Vérifier les changements d'état
@@ -361,7 +361,7 @@ it('BAD test', () => {
   // ⚠️ Oubli de fixture.detectChanges() !
   
   const title = fixture.debugElement.query(By.css('[data-testid="title"]'));
-  expect(title.nativeElement.textContent).toContain('Counter: 1'); // 💥 FAIL!
+  expect(title.nativeElement.textContent).toContain('Counter: 1'); //  FAIL!
 });
 
 // ✅ RÉUSSIT - Le DOM est synchronisé
@@ -432,7 +432,7 @@ it('should increment 5 times', () => {
 
 # Session 5: Tests Asynchrones
 
-## 🎯 Objectifs
+##  Objectifs
 - Tester les opérations async/await
 - Utiliser `fixture.whenStable()`
 - Gérer les timers
@@ -499,7 +499,7 @@ it('should show loading state during submission', async () => {
 
 # Session 6: Mocking et Spies
 
-## 🎯 Objectifs
+##  Objectifs
 - Créer des mocks avec `vi.fn()`
 - Espionner des méthodes avec `vi.spyOn()`
 - Mocker les timers
@@ -572,7 +572,7 @@ it('should handle setTimeout', async () => {
 
 ---
 
-# 🧩 Exercices Pratiques
+#  Exercices Pratiques
 
 ## Exercice 1: Service de Température (Facile)
 
@@ -592,7 +592,7 @@ export class TemperatureService {
 3. -40°C = -40°F
 
 <details>
-<summary>💡 Solution</summary>
+<summary> Solution</summary>
 
 ```typescript
 describe('TemperatureService', () => {
@@ -643,7 +643,7 @@ export class ToggleComponent {
 3. Après deux clics, le texte est "OFF"
 
 <details>
-<summary>💡 Solution</summary>
+<summary> Solution</summary>
 
 ```typescript
 describe('ToggleComponent', () => {
@@ -711,7 +711,7 @@ export class EmailComponent {
 ```
 
 <details>
-<summary>💡 Solution</summary>
+<summary> Solution</summary>
 
 ```typescript
 describe('EmailComponent', () => {
@@ -771,7 +771,7 @@ describe('EmailComponent', () => {
 
 ---
 
-# 🎯 Quiz & Pièges Courants
+#  Quiz & Pièges Courants
 
 ## ❓ Quiz 1: Trouvez l'erreur
 
@@ -784,7 +784,7 @@ it('should add items to array', () => {
 ```
 
 <details>
-<summary>💡 Réponse</summary>
+<summary> Réponse</summary>
 
 **Problème**: `toBe` compare les références, pas les valeurs!
 
@@ -809,7 +809,7 @@ it('should find element', () => {
 ```
 
 <details>
-<summary>💡 Réponse</summary>
+<summary> Réponse</summary>
 
 **Problème**: Oubli de `fixture.detectChanges()` !
 
@@ -841,13 +841,13 @@ describe('MyService', () => {
   
   it('test 2', () => {
     service.addItem('b');
-    expect(service.items.length).toBe(1); // 💥 Échoue!
+    expect(service.items.length).toBe(1); //  Échoue!
   });
 });
 ```
 
 <details>
-<summary>💡 Réponse</summary>
+<summary> Réponse</summary>
 
 **Problème**: Le service est partagé entre les tests!
 
@@ -896,7 +896,7 @@ it('should validate password', () => {
 ```
 
 <details>
-<summary>💡 Réponse</summary>
+<summary> Réponse</summary>
 
 **Problème**: Ce test vérifie **deux comportements** différents!
 
@@ -922,7 +922,7 @@ it('should accept password with 6 or more characters', () => {
 
 ---
 
-## ❓ Quiz 5: Challenge Final 🏆
+## ❓ Quiz 5: Challenge Final 
 
 Corrigez ce test (plusieurs erreurs):
 
@@ -942,7 +942,7 @@ it('user can login', async () => {
 ```
 
 <details>
-<summary>💡 Réponse</summary>
+<summary> Réponse</summary>
 
 **Erreurs trouvées:**
 
@@ -985,7 +985,7 @@ it('user can login', async () => {
 
 ---
 
-# 📝 Résumé des Bonnes Pratiques
+#  Résumé des Bonnes Pratiques
 
 | ✅ À Faire | ❌ À Éviter |
 |-----------|-------------|
@@ -1000,11 +1000,11 @@ it('user can login', async () => {
 
 ---
 
-## 🚀 Prochaines Étapes
+##  Prochaines Étapes
 
 1. **Pratiquer** avec les exercices fournis
 2. **Explorer** les composants Counter et LoginForm
 3. **Écrire** vos propres tests pour votre code
 4. **Lire** la [documentation Vitest](https://vitest.dev/)
 
-**Bon testing! 🧪**
+**Bon testing! **

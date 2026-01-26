@@ -1,4 +1,4 @@
-import { Component, signal, computed } from '@angular/core';
+import { Component, signal, computed, input, output, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -64,8 +64,22 @@ import { CommonModule } from '@angular/common';
   `]
 })
 export class CounterComponent {
+  // Inputs - modern signal-based
+  initialValue = input(0);
+  step = input(1);
+  
+  // Outputs - modern signal-based
+  valueChanged = output<number>();
+  
   count = signal(0);
   customAmount = signal(1);
+  
+  constructor() {
+    // Initialize count from input
+    effect(() => {
+      this.count.set(this.initialValue());
+    });
+  }
 
   statusMessage = computed(() => {
     const value = this.count();
@@ -83,17 +97,20 @@ export class CounterComponent {
   });
 
   increment(): void {
-    this.count.update(v => v + 1);
+    this.count.update(v => v + this.step());
+    this.valueChanged.emit(this.count());
   }
 
   decrement(): void {
     if (this.count() > 0) {
-      this.count.update(v => v - 1);
+      this.count.update(v => v - this.step());
+      this.valueChanged.emit(this.count());
     }
   }
 
   reset(): void {
-    this.count.set(0);
+    this.count.set(this.initialValue());
+    this.valueChanged.emit(this.count());
   }
 
   updateAmount(event: Event): void {
@@ -105,5 +122,6 @@ export class CounterComponent {
 
   addCustomAmount(): void {
     this.count.update(v => v + this.customAmount());
+    this.valueChanged.emit(this.count());
   }
 }

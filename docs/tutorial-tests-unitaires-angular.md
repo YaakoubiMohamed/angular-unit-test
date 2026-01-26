@@ -1,4 +1,4 @@
-# 🧪 Session 1 — Fondations & Outillage des Tests Unitaires Angular
+#  Session 1 — Fondations & Outillage des Tests Unitaires Angular
 
 > **Durée totale : 2 heures**  
 > **Version Angular : 20+**  
@@ -6,7 +6,7 @@
 
 ---
 
-## 🎯 Objectifs de la session
+##  Objectifs de la session
 
 À la fin de cette session, vous serez capables de :
 
@@ -18,7 +18,7 @@
 
 ---
 
-## ⏱️ Répartition du temps
+##  Répartition du temps
 
 | Temps       | Sujet                                        |
 | ----------- | -------------------------------------------- |
@@ -41,14 +41,14 @@
 > Les tests unitaires sont des **filets de sécurité**.  
 > Ils nous alertent quand un changement casse un comportement existant. »*
 
-### 📝 Idées fondamentales
+###  Idées fondamentales
 
 | Concept | Explication |
 |---------|-------------|
-| 🛡️ **Réduction des risques** | Les tests ne prouvent pas la perfection, mais minimisent les régressions |
-| 📖 **Documentation vivante** | Un test bien écrit documente le comportement attendu |
-| 🔄 **Refactoring serein** | Modifier le code sans crainte de tout casser |
-| ⚡ **Feedback rapide** | Détection immédiate des erreurs pendant le développement |
+|  **Réduction des risques** | Les tests ne prouvent pas la perfection, mais minimisent les régressions |
+|  **Documentation vivante** | Un test bien écrit documente le comportement attendu |
+|  **Refactoring serein** | Modifier le code sans crainte de tout casser |
+|  **Feedback rapide** | Détection immédiate des erreurs pendant le développement |
 
 ### 🚗 Analogie concrète
 
@@ -56,7 +56,7 @@
 > On ne teste pas parce qu'on s'attend à un accident,  
 > on teste pour que l'accident ne nous surprenne pas. »*
 
-### 📊 Statistiques parlantes
+###  Statistiques parlantes
 
 - **40%** des bugs en production auraient pu être évités par des tests unitaires
 - Les équipes avec une bonne couverture de tests livrent **2x plus vite** en moyenne
@@ -80,7 +80,7 @@
     ────────────────────────────────────
 ```
 
-### 📋 Définitions précises
+###  Définitions précises
 
 | Type de test | Cible | Exemple Angular |
 |--------------|-------|-----------------|
@@ -88,7 +88,7 @@
 | **Intégration** | Plusieurs unités ensemble | Composant + ses dépendances |
 | **E2E** | Application complète | Parcours utilisateur complet |
 
-### 🎯 Ce qu'on peut tester unitairement en Angular
+###  Ce qu'on peut tester unitairement en Angular
 
 ```typescript
 // ✅ Service - logique métier
@@ -165,7 +165,7 @@ Chrome Headless 120.0.6099.109: Executed 5 of 5 SUCCESS (0.234 secs)
 ✓ CalculatorService should handle division by zero
 ```
 
-### 🎨 Interprétation des couleurs
+###  Interprétation des couleurs
 
 | Couleur | Signification |
 |---------|---------------|
@@ -173,7 +173,7 @@ Chrome Headless 120.0.6099.109: Executed 5 of 5 SUCCESS (0.234 secs)
 | 🔴 Rouge | Test échoué |
 | 🟡 Jaune | Test ignoré (skip) |
 
-### 💡 Message important
+###  Message important
 
 > *« Quand un test échoue, **rien n'est cassé**.  
 > Le test est simplement en train de vous informer.  
@@ -183,10 +183,10 @@ Chrome Headless 120.0.6099.109: Executed 5 of 5 SUCCESS (0.234 secs)
 
 ## 4️⃣ Anatomie d'un fichier de test (45–70 min)
 
-### 📄 Structure complète d'un fichier `.spec.ts`
+###  Structure complète d'un fichier `.spec.ts`
 
 ```typescript
-// 📦 Imports nécessaires
+//  Imports nécessaires
 import { CalculatorService } from './calculator.service';
 
 // 🏷️ Suite de tests - regroupe les tests liés
@@ -195,7 +195,7 @@ describe('CalculatorService', () => {
   // 📌 Variable partagée entre les tests
   let service: CalculatorService;
 
-  // 🔧 Préparation AVANT CHAQUE test
+  //  Préparation AVANT CHAQUE test
   beforeEach(() => {
     service = new CalculatorService();
   });
@@ -211,14 +211,14 @@ describe('CalculatorService', () => {
     const a = 5;
     const b = 3;
 
-    // 🎯 Act (Agir)
+    //  Act (Agir)
     const result = service.add(a, b);
 
     // ✔️ Assert (Vérifier)
     expect(result).toBe(8);
   });
 
-  // 📁 Sous-groupe de tests (optionnel mais recommandé)
+  // Sous-groupe de tests (optionnel mais recommandé)
   describe('division', () => {
     it('should divide two numbers correctly', () => {
       expect(service.divide(10, 2)).toBe(5);
@@ -231,7 +231,7 @@ describe('CalculatorService', () => {
 });
 ```
 
-### 📚 Mots-clés essentiels
+###  Mots-clés essentiels
 
 | Mot-clé | Signification | Exemple |
 |---------|---------------|---------|
@@ -243,7 +243,7 @@ describe('CalculatorService', () => {
 | `beforeAll` | Une fois avant tous | Setup global |
 | `afterAll` | Une fois après tous | Teardown global |
 
-### 🎯 Matchers les plus utilisés
+###  Matchers les plus utilisés
 
 ```typescript
 // Égalité stricte
@@ -300,7 +300,7 @@ it('should return an empty array when no items exist', () => { });
 
 ## 5️⃣ Live coding — Premier vrai test unitaire (70–95 min)
 
-### 📝 Étape 1 : Créer un service complet
+###  Étape 1 : Créer un service complet
 
 ```bash
 ng generate service services/calculator --skip-tests
@@ -361,7 +361,7 @@ export class CalculatorService {
 }
 ```
 
-### 📝 Étape 2 : Créer le fichier de test
+###  Étape 2 : Créer le fichier de test
 
 Créez `calculator.service.spec.ts` :
 
@@ -371,7 +371,7 @@ import { CalculatorService } from './calculator.service';
 describe('CalculatorService', () => {
   let service: CalculatorService;
 
-  // 🔧 Initialisation avant chaque test
+  //  Initialisation avant chaque test
   beforeEach(() => {
     service = new CalculatorService();
   });
@@ -457,7 +457,7 @@ describe('CalculatorService', () => {
   });
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  // 📊 Tests pour le pourcentage
+  //  Tests pour le pourcentage
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   describe('percentage', () => {
     it('should calculate 50% correctly', () => {
@@ -475,13 +475,13 @@ describe('CalculatorService', () => {
 });
 ```
 
-### 🚀 Étape 3 : Lancer les tests
+###  Étape 3 : Lancer les tests
 
 ```bash
 ng test
 ```
 
-### 🎓 Questions interactives
+### Questions interactives
 
 1. **Que se passe-t-il si on remplace `toBe(8)` par `toBe(9)` ?**
    - Le test échoue avec un message clair
@@ -663,7 +663,7 @@ describe('DiscountService', () => {
   // ❌ Oubli du beforeEach - service n'est jamais initialisé !
 
   it('should apply discount', () => {
-    const result = service.applyDiscount(200, 10); // 💥 service est undefined
+    const result = service.applyDiscount(200, 10); //  service est undefined
     expect(result).toBe(180);
   });
 });
@@ -710,7 +710,7 @@ describe('CalculatorService', () => {
   });
 
   it('should add two numbers', () => {
-    const result = service.add(2, 3);  // 💥 Peut échouer selon l'ordre d'exécution
+    const result = service.add(2, 3);  //  Peut échouer selon l'ordre d'exécution
     expect(result).toBe(5);
   });
 });
@@ -950,7 +950,7 @@ describe('DiscountService', () => {
   });
 
   it('should have valid codes', () => {
-    expect(service.isValidPromoCode('PROMO10')).toBe(true);  // 💥 Échoue car codes effacés
+    expect(service.isValidPromoCode('PROMO10')).toBe(true);  //  Échoue car codes effacés
   });
 });
 ```
@@ -980,7 +980,7 @@ describe('DiscountService', () => {
 
 ---
 
-### 📋 Tableau récapitulatif des erreurs
+###  Tableau récapitulatif des erreurs
 
 | Erreur | Cause | Solution rapide |
 |--------|-------|-----------------|
@@ -996,7 +996,7 @@ describe('DiscountService', () => {
 
 ---
 
-### 💡 Conseil pro : Lire les messages d'erreur
+###  Conseil pro : Lire les messages d'erreur
 
 Les messages d'erreur Jasmine/Jest sont très informatifs :
 
@@ -1016,11 +1016,11 @@ Error: Expected 180 to be 200.
 
 ## 7️⃣ Exercice guidé (95–110 min)
 
-### 🎯 Objectif
+###  Objectif
 
 Écrire des tests unitaires complets pour un service de réduction.
 
-### 📝 Étape 1 : Créer le service
+###  Étape 1 : Créer le service
 
 ```bash
 ng generate service services/discount --skip-tests
@@ -1101,7 +1101,7 @@ export class DiscountService {
 }
 ```
 
-### 📝 Étape 2 : À vous de jouer !
+###  Étape 2 : À vous de jouer !
 
 Créez `discount.service.spec.ts` et écrivez des tests pour :
 
@@ -1187,7 +1187,7 @@ describe('DiscountService', () => {
   });
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  // 📋 Tests pour calculateDiscountDetails
+  //  Tests pour calculateDiscountDetails
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   describe('calculateDiscountDetails', () => {
     it('should return complete discount details', () => {
@@ -1232,7 +1232,7 @@ describe('DiscountService', () => {
   });
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  // 🔢 Tests pour getDiscountForCode
+  // Tests pour getDiscountForCode
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   describe('getDiscountForCode', () => {
     it('should return correct discount for PROMO10', () => {
@@ -1258,7 +1258,7 @@ describe('DiscountService', () => {
 
 ## 9️⃣ Devoir maison (110–120 min)
 
-### 📋 Exercice obligatoire
+###  Exercice obligatoire
 
 Créez un service `TemperatureService` avec les méthodes suivantes :
 
@@ -1335,12 +1335,12 @@ export class TemperatureService {
 
 | ✅ | Concept clé |
 |----|-------------|
-| 🎯 | Les tests unitaires testent le **comportement**, pas Angular |
-| ⚡ | Les tests sont **rapides, locaux et sûrs** |
-| 💡 | Un test qui échoue est une **information utile**, pas un problème |
-| 📁 | Chaque fonctionnalité Angular a son fichier `.spec.ts` |
-| 📖 | Un bon test se lit comme une **phrase en français** |
-| 🧩 | Pattern AAA : **Arrange** → **Act** → **Assert** |
+|  | Les tests unitaires testent le **comportement**, pas Angular |
+|  | Les tests sont **rapides, locaux et sûrs** |
+|  | Un test qui échoue est une **information utile**, pas un problème |
+| | Chaque fonctionnalité Angular a son fichier `.spec.ts` |
+|  | Un bon test se lit comme une **phrase en français** |
+|  | Pattern AAA : **Arrange** → **Act** → **Assert** |
 
 ### Commandes essentielles
 
@@ -1368,15 +1368,15 @@ ng test --include=**/mon-service.spec.ts
 > c'est là que les tests Angular deviennent vraiment puissants ! »*
 
 ### Au programme :
-- 🧩 Utilisation de `TestBed` et `ComponentFixture`
-- 🖱️ Simulation d'événements utilisateur
-- 📥 Test des `@Input()` et `@Output()`
-- 🔗 Composants avec dépendances (mocks)
-- 🎭 Tests asynchrones avec `fakeAsync` et `waitForAsync`
+-  Utilisation de `TestBed` et `ComponentFixture`
+-  Simulation d'événements utilisateur
+-  Test des `@Input()` et `@Output()`
+-  Composants avec dépendances (mocks)
+-  Tests asynchrones avec `fakeAsync` et `waitForAsync`
 
 ---
 
-## 📚 Ressources complémentaires
+##  Ressources complémentaires
 
 - [Documentation officielle Angular Testing](https://angular.io/guide/testing)
 - [Jest Documentation](https://jestjs.io/docs/getting-started)

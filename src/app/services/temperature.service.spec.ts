@@ -13,7 +13,7 @@ describe('TemperatureService', () => {
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // 🚨 SECTION PÉDAGOGIQUE : Erreurs spécifiques aux conversions
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  describe('🎓 Erreurs de conversion (à décommenter pour apprendre)', () => {
+  describe('Erreurs de conversion (à décommenter pour apprendre)', () => {
     /*
     // ❌ ERREUR 1 : Confusion des formules de conversion
     // Message: "Expected 50 to be 122"
@@ -85,22 +85,22 @@ describe('TemperatureService', () => {
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   describe('celsiusToFahrenheit', () => {
     it('should convert 0°C to 32°F (point de congélation)', () => {
-      // 💡 Formule : (0 × 9/5) + 32 = 32
+      //  Formule : (0 × 9/5) + 32 = 32
       expect(service.celsiusToFahrenheit(0)).toBe(32);
     });
 
     it('should convert 100°C to 212°F (point d\'ébullition)', () => {
-      // 💡 Formule : (100 × 9/5) + 32 = 180 + 32 = 212
+      //  Formule : (100 × 9/5) + 32 = 180 + 32 = 212
       expect(service.celsiusToFahrenheit(100)).toBe(212);
     });
 
     it('should convert -40°C to -40°F (point d\'intersection)', () => {
-      // 💡 C'est le seul point où Celsius = Fahrenheit !
+      //  C'est le seul point où Celsius = Fahrenheit !
       expect(service.celsiusToFahrenheit(-40)).toBe(-40);
     });
 
     it('should convert 37°C to 98.6°F (température corporelle)', () => {
-      // 💡 Utiliser toBeCloseTo pour les décimales
+      //  Utiliser toBeCloseTo pour les décimales
       expect(service.celsiusToFahrenheit(37)).toBeCloseTo(98.6, 1);
     });
 
@@ -118,7 +118,7 @@ describe('TemperatureService', () => {
     });
 
     it('should throw error for temperature below absolute zero', () => {
-      // 💡 TOUJOURS utiliser une fonction fléchée avec toThrow !
+      //  TOUJOURS utiliser une fonction fléchée avec toThrow !
       expect(() => service.celsiusToFahrenheit(-300)).toThrowError(
         /zéro absolu/
       );
@@ -276,7 +276,7 @@ describe('TemperatureService', () => {
   });
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  // 🏠 Tests pour isComfortableTemperature
+  //  Tests pour isComfortableTemperature
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   describe('isComfortableTemperature', () => {
     it('should return true for temperatures between 18°C and 24°C', () => {
@@ -297,7 +297,7 @@ describe('TemperatureService', () => {
   });
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  // 📊 Tests pour temperatureDifference
+  //  Tests pour temperatureDifference
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   describe('temperatureDifference', () => {
     it('should calculate difference correctly', () => {

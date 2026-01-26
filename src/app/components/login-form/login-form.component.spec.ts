@@ -21,7 +21,7 @@ describe('LoginFormComponent', () => {
   });
 
   // ============================================
-  // 🏗️ SECTION 1: Form Rendering Tests
+  //  SECTION 1: Form Rendering Tests
   // ============================================
   describe('Form Rendering', () => {
     it('should create the component', () => {
@@ -51,7 +51,7 @@ describe('LoginFormComponent', () => {
   });
 
   // ============================================
-  // ⌨️ SECTION 2: Input Binding Tests
+  //  SECTION 2: Input Binding Tests
   // ============================================
   describe('Input Bindings', () => {
     it('should update email when user types', async () => {
@@ -208,7 +208,7 @@ describe('LoginFormComponent', () => {
   });
 
   // ============================================
-  // 📤 SECTION 6: Form Submission Tests
+  //  SECTION 6: Form Submission Tests
   // ============================================
   describe('Form Submission', () => {
     it('should show loading state during submission', async () => {
@@ -278,7 +278,7 @@ describe('LoginFormComponent', () => {
   });
 
   // ============================================
-  // 🧪 SECTION 7: Vitest-Specific Features Demo
+  //  SECTION 7: Vitest-Specific Features Demo
   // ============================================
   describe('Vitest-Specific Features', () => {
     it('should use vi.fn() for mocking functions', () => {

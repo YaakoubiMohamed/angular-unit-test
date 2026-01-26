@@ -3,7 +3,7 @@ import { CalculatorService } from './calculator.service';
 describe('CalculatorService', () => {
   let service: CalculatorService;
 
-  // 🔧 Initialisation avant chaque test
+  //  Initialisation avant chaque test
   beforeEach(() => {
     service = new CalculatorService();
   });
@@ -12,7 +12,7 @@ describe('CalculatorService', () => {
   // 🚨 SECTION PÉDAGOGIQUE : Exemples d'erreurs courantes
   // Décommentez ces tests pour voir les messages d'erreur !
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  describe('🎓 Exemples d\'erreurs (à décommenter pour apprendre)', () => {
+  describe('Exemples d\'erreurs (à décommenter pour apprendre)', () => {
     /*
     // ❌ ERREUR 1 : Service non initialisé
     // Message: "Cannot read properties of undefined (reading 'add')"
@@ -96,8 +96,8 @@ describe('CalculatorService', () => {
     it('should handle decimal numbers', () => {
       const result = service.add(0.1, 0.2);
       // ✅ CORRECT : Utiliser toBeCloseTo pour les nombres décimaux
-      // ❌ INCORRECT : expect(result).toBe(0.3) échouerait !
-      expect(result).toBeCloseTo(0.3, 10);
+      // ❌ INCORRECT : expect(result).toBe(0.3) échouerait à cause de la précision flottante
+      expect(result).toBeCloseTo(0.3);
     });
 
     it('should handle very large numbers', () => {
@@ -185,7 +185,7 @@ describe('CalculatorService', () => {
   });
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  // 📊 Tests pour le pourcentage
+  //  Tests pour le pourcentage
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   describe('percentage', () => {
     it('should calculate 50% correctly', () => {
@@ -210,7 +210,7 @@ describe('CalculatorService', () => {
   });
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  // 🔢 Tests pour la puissance
+  // Tests pour la puissance
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   describe('power', () => {
     it('should calculate power correctly', () => {

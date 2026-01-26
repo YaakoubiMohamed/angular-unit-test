@@ -1,4 +1,4 @@
-# 🚀 Migration Summary: Karma to Vitest
+#  Migration Summary: Karma to Vitest
 
 > **Date:** January 22, 2026  
 > **Project:** guard  
@@ -6,7 +6,7 @@
 
 ---
 
-## 📋 Table of Contents
+##  Table of Contents
 
 1. [Overview](#overview)
 2. [Why Migrate to Vitest?](#why-migrate-to-vitest)
@@ -22,7 +22,7 @@
 12. [UI Component Testing Examples](#ui-component-testing-examples)
 13. [Troubleshooting](#troubleshooting)
 
-> 📚 **Looking for a step-by-step tutorial?**  
+>  **Looking for a step-by-step tutorial?**  
 > See [tutorial-tests-unitaires-vitest.md](tutorial-tests-unitaires-vitest.md) for a progressive learning guide with exercises and quizzes!
 
 ---
@@ -37,7 +37,7 @@ This document summarizes the migration from **Karma + Jasmine** testing framewor
 
 | Feature | Karma + Jasmine | Vitest |
 |---------|-----------------|--------|
-| **Speed** | Slower (browser-based) | ⚡ Faster (Node.js based) |
+| **Speed** | Slower (browser-based) |  Faster (Node.js based) |
 | **Hot Module Replacement** | ❌ No | ✅ Yes |
 | **Native ESM Support** | Limited | ✅ Full support |
 | **Watch Mode** | Basic | ✅ Smart & Fast |
@@ -385,7 +385,7 @@ The migration was verified successfully with all tests passing:
 
 This project includes comprehensive UI component tests demonstrating real-world Angular testing with Vitest.
 
-### 📁 Example Components
+### Example Components
 
 #### 1. Counter Component
 - **Location**: `src/app/components/counter/`
@@ -412,7 +412,7 @@ This project includes comprehensive UI component tests demonstrating real-world 
 
 ---
 
-### 🧪 Key Testing Patterns
+###  Key Testing Patterns
 
 #### 1. Button Click Testing
 ```typescript

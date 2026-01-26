@@ -1,4 +1,4 @@
-# 🔍 Guide Pratique : Diagnostic des Erreurs de Tests
+#  Guide Pratique : Diagnostic des Erreurs de Tests
 
 > **Objectif** : Apprendre à lire, comprendre et corriger les erreurs de tests unitaires  
 > **Durée estimée** : 1h30  
@@ -6,7 +6,7 @@
 
 ---
 
-## 📋 Table des matières
+##  Table des matières
 
 1. [Introduction : Pourquoi les erreurs sont vos amies](#1-introduction)
 2. [Comment lire un message d'erreur](#2-lecture-erreurs)
@@ -26,7 +26,7 @@
 <a name="1-introduction"></a>
 ## 1️⃣ Introduction : Pourquoi les erreurs sont vos amies
 
-### 🎯 Objectif de cette section
+###  Objectif de cette section
 
 Changer votre perception des tests rouges. Un test qui échoue n'est **pas** un problème, c'est une **information précieuse**.
 
@@ -36,7 +36,7 @@ Changer votre perception des tests rouges. Un test qui échoue n'est **pas** un 
 > c'est l'indice qui vous permet de trouver le problème.  
 > Les messages d'erreur de tests sont vos symptômes. »*
 
-### 📊 Les 3 types de situations
+###  Les 3 types de situations
 
 | Situation | Signification | Action |
 |-----------|---------------|--------|
@@ -59,7 +59,7 @@ Changer votre perception des tests rouges. Un test qui échoue n'est **pas** un 
 <a name="2-lecture-erreurs"></a>
 ## 2️⃣ Comment lire un message d'erreur
 
-### 📖 Anatomie d'un message d'erreur
+###  Anatomie d'un message d'erreur
 
 Voici un exemple réel de message d'erreur :
 
@@ -73,7 +73,7 @@ FAILED CalculatorService > add > should add two numbers correctly
   Received: 8
 ```
 
-### 🔍 Décortiquer le message
+###  Décortiquer le message
 
 | Partie | Signification |
 |--------|---------------|
@@ -84,12 +84,12 @@ FAILED CalculatorService > add > should add two numbers correctly
 | `Expected: 10` | Ce que VOUS avez dit que ça devrait être |
 | `Received: 8` | Ce que le CODE a réellement produit |
 
-### 💡 Règle d'or
+###  Règle d'or
 
 > **Expected** = votre assertion (ce que vous avez écrit dans `expect().toBe()`)  
 > **Received** = le résultat réel du code
 
-### 🎯 Question à se poser
+###  Question à se poser
 
 Quand un test échoue, demandez-vous :
 
@@ -147,17 +147,17 @@ it('should apply 10% discount correctly', () => {
 });
 ```
 
-### 📝 Exercice pratique
+###  Exercice pratique
 
 Ouvrez le fichier `src/app/services/discount.service.spec.ts` et trouvez la section commentée "ERREUR 1". Décommentez-la pour voir l'erreur, puis corrigez-la.
 
-### 💡 Conseil
+###  Conseil
 
 Avant d'écrire un test, **calculez à la main** le résultat attendu. Écrivez-le en commentaire :
 
 ```typescript
 it('should apply 10% discount correctly', () => {
-  // 💡 Calcul : 200 - (200 × 10 / 100) = 200 - 20 = 180
+  //  Calcul : 200 - (200 × 10 / 100) = 200 - 20 = 180
   const result = service.applyDiscount(200, 10);
   expect(result).toBe(180);
 });
@@ -192,7 +192,7 @@ describe('CalculatorService', () => {
   // ❌ OUBLI : pas de beforeEach pour initialiser le service !
 
   it('should add two numbers', () => {
-    const result = service.add(2, 3); // 💥 service est undefined
+    const result = service.add(2, 3); //  service est undefined
     expect(result).toBe(5);
   });
 });
@@ -221,7 +221,7 @@ describe('CalculatorService', () => {
 });
 ```
 
-### 🔍 Pourquoi `beforeEach` et pas juste une initialisation directe ?
+###  Pourquoi `beforeEach` et pas juste une initialisation directe ?
 
 ```typescript
 // ❌ PROBLÈME : même instance partagée entre tous les tests
@@ -236,7 +236,7 @@ beforeEach(() => {
 
 Avec `beforeEach`, chaque test obtient une **instance fraîche** du service, ce qui évite les effets de bord entre les tests.
 
-### 📝 Exercice pratique
+###  Exercice pratique
 
 1. Créez un nouveau fichier de test `test-erreur.spec.ts`
 2. Écrivez un test **sans** `beforeEach`
@@ -288,7 +288,7 @@ it('should add decimal numbers', () => {
 });
 ```
 
-### 📚 Syntaxe de `toBeCloseTo`
+###  Syntaxe de `toBeCloseTo`
 
 ```typescript
 expect(value).toBeCloseTo(expected, precision);
@@ -299,7 +299,7 @@ expect(value).toBeCloseTo(expected, precision);
 | `expected` | La valeur attendue |
 | `precision` | Nombre de décimales à vérifier (défaut: 2) |
 
-### 📝 Exemples
+###  Exemples
 
 ```typescript
 // Vérifie que le résultat est proche de 3.14 avec 2 décimales
@@ -310,7 +310,7 @@ expect(3.14159).toBeCloseTo(3.14159, 5); // ✅ Passe
 expect(3.14159).toBeCloseTo(3.14, 5);    // ❌ Échoue (pas assez précis)
 ```
 
-### 💡 Règle
+###  Règle
 
 > **Toujours utiliser `toBeCloseTo()` pour les nombres décimaux !**
 
@@ -343,7 +343,7 @@ Le problème est que `service.divide(10, 0)` est **exécuté immédiatement**, c
 
 ```typescript
 // Ce qui se passe réellement :
-const result = service.divide(10, 0); // 💥 Exception levée ICI
+const result = service.divide(10, 0); //  Exception levée ICI
 expect(result).toThrow();              // Jamais atteint
 ```
 
@@ -357,7 +357,7 @@ it('should throw error when dividing by zero', () => {
 });
 ```
 
-### 🔍 Comment ça marche ?
+###  Comment ça marche ?
 
 ```typescript
 // expect reçoit une FONCTION (pas encore exécutée)
@@ -366,7 +366,7 @@ expect(() => service.divide(10, 0))
 .toThrow();
 ```
 
-### 📚 Variantes de `toThrow`
+###  Variantes de `toThrow`
 
 ```typescript
 // Vérifie qu'une exception est levée (n'importe laquelle)
@@ -382,12 +382,12 @@ expect(() => fn()).toThrowError(/zéro/);
 expect(() => fn()).toThrowError(TypeError);
 ```
 
-### 📝 Exercice pratique
+###  Exercice pratique
 
 Écrivez un test pour vérifier que `CalculatorService.squareRoot(-4)` lève une exception avec le message "Racine carrée d'un nombre négatif impossible".
 
 <details>
-<summary>💡 Solution</summary>
+<summary> Solution</summary>
 
 ```typescript
 it('should throw error for negative square root', () => {
@@ -443,7 +443,7 @@ it('should return user details', () => {
 });
 ```
 
-### 📊 Tableau comparatif
+###  Tableau comparatif
 
 | Matcher | Comparaison | Utilisation |
 |---------|-------------|-------------|
@@ -451,7 +451,7 @@ it('should return user details', () => {
 | `toEqual()` | Valeur (profonde) | Objets, tableaux |
 | `toStrictEqual()` | Valeur + types | Objets avec vérification de type strict |
 
-### 📝 Exemples
+###  Exemples
 
 ```typescript
 // ✅ Primitives : utiliser toBe
@@ -467,7 +467,7 @@ expect([1, 2, 3]).toEqual([1, 2, 3]);
 expect({ user: { name: 'Alice' } }).toEqual({ user: { name: 'Alice' } });
 ```
 
-### 💡 Astuce : Comparer partiellement
+###  Astuce : Comparer partiellement
 
 Si vous ne voulez vérifier que certaines propriétés :
 
@@ -518,7 +518,7 @@ it('should calculate discount', () => {
 });
 ```
 
-### 💡 Bonnes pratiques
+###  Bonnes pratiques
 
 ```typescript
 // ❌ Test sans valeur
@@ -624,7 +624,7 @@ Les bons tests unitaires suivent le principe **FIRST** :
 | **S** | Self-validating | Passent ou échouent clairement |
 | **T** | Timely | Écrits au bon moment (avant ou avec le code) |
 
-### 💡 Comment détecter des tests dépendants ?
+###  Comment détecter des tests dépendants ?
 
 Exécutez vos tests dans un **ordre aléatoire** :
 
@@ -701,7 +701,7 @@ it('should return freezing', () => {
 });
 ```
 
-### 💡 Conseil
+###  Conseil
 
 Définissez des **constantes** ou des **enums** pour les valeurs fixes :
 
@@ -724,7 +724,7 @@ expect(category).toBe(TEMPERATURE_CATEGORIES.FREEZING);
 ---
 
 <a name="exercices"></a>
-## 📝 Exercices pratiques
+##  Exercices pratiques
 
 ### Exercice 1 : Identifier l'erreur
 
@@ -833,7 +833,7 @@ describe('MathService', () => {
 ### Exercice 3 : Débogage en direct
 
 1. Ouvrez `src/app/services/calculator.service.spec.ts`
-2. Trouvez la section "🎓 Exemples d'erreurs"
+2. Trouvez la section "Exemples d'erreurs"
 3. Décommentez **une erreur à la fois**
 4. Exécutez `ng test`
 5. Observez le message d'erreur
@@ -844,7 +844,7 @@ describe('MathService', () => {
 ---
 
 <a name="aide-memoire"></a>
-## 📋 Aide-mémoire
+##  Aide-mémoire
 
 ### Tableau de diagnostic rapide
 
@@ -918,7 +918,7 @@ describe('NomDuService', () => {
 
 ---
 
-## 🎯 Conclusion
+##  Conclusion
 
 Vous savez maintenant :
 

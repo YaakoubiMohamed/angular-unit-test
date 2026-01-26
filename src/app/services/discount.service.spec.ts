@@ -10,7 +10,7 @@ describe('DiscountService', () => {
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // 🚨 SECTION PÉDAGOGIQUE : Erreurs fréquentes avec les services
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  describe('🎓 Erreurs courantes (à décommenter pour apprendre)', () => {
+  describe('Erreurs courantes (à décommenter pour apprendre)', () => {
     /*
     // ❌ ERREUR 1 : Confusion entre le prix original et le prix réduit
     // Message: "Expected 180 to be 200"
@@ -83,7 +83,7 @@ describe('DiscountService', () => {
     describe('avec des paramètres valides', () => {
       it('should apply 10% discount correctly', () => {
         const result = service.applyDiscount(200, 10);
-        // 💡 Note : 200 - (200 × 10 / 100) = 200 - 20 = 180
+        //  Note : 200 - (200 × 10 / 100) = 200 - 20 = 180
         expect(result).toBe(180);
       });
 
@@ -104,7 +104,7 @@ describe('DiscountService', () => {
 
       it('should handle decimal prices correctly', () => {
         const result = service.applyDiscount(99.99, 10);
-        // 💡 Note : Utiliser toBeCloseTo pour les décimales !
+        //  Note : Utiliser toBeCloseTo pour les décimales !
         expect(result).toBeCloseTo(89.991, 2);
       });
 
@@ -138,7 +138,7 @@ describe('DiscountService', () => {
   });
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  // 📋 Tests pour calculateDiscountDetails
+  //  Tests pour calculateDiscountDetails
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   describe('calculateDiscountDetails', () => {
     it('should return complete discount details', () => {
@@ -201,7 +201,7 @@ describe('DiscountService', () => {
   });
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  // 🔢 Tests pour getDiscountForCode
+  // Tests pour getDiscountForCode
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   describe('getDiscountForCode', () => {
     it('should return correct discount for PROMO10', () => {
@@ -236,7 +236,7 @@ describe('DiscountService', () => {
   });
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  // 📦 Tests pour getMinOrderAmountForCode
+  //  Tests pour getMinOrderAmountForCode
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   describe('getMinOrderAmountForCode', () => {
     it('should return minimum order amount for SUMMER50', () => {

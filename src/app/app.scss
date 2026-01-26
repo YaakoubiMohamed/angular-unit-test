@@ -1,0 +1,138 @@
+/* App Layout Styles - Angular.dev Light Theme */
+
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-header {
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  
+  .header-content {
+    max-width: 1400px;
+    margin: 0 auto 1rem;
+    text-align: center;
+    
+    h1 {
+      font-size: 1.75rem;
+      background: var(--angular-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    
+    p {
+      color: var(--text-secondary);
+      margin: 0;
+      font-size: 0.9rem;
+    }
+  }
+  
+  .main-nav {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+    
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1rem;
+      border-radius: var(--radius-md);
+      color: var(--text-secondary);
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+      background: transparent;
+      border: 1px solid transparent;
+      
+      &:hover {
+        color: var(--angular-pink);
+        background: rgba(234, 53, 171, 0.08);
+      }
+      
+      &.active {
+        background: var(--angular-gradient);
+        color: white;
+        border-color: transparent;
+        font-weight: 600;
+      }
+    }
+    
+    .nav-disabled {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1rem;
+      border-radius: var(--radius-md);
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.9rem;
+      background: transparent;
+      border: 1px solid transparent;
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+  }
+}
+
+.main-content {
+  flex: 1;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.main-footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  padding: 1.25rem 2rem;
+  text-align: center;
+  
+  p {
+    color: var(--text-muted);
+    margin: 0;
+    font-size: 0.8rem;
+    
+    a {
+      color: var(--angular-pink);
+      
+      &:hover {
+        color: var(--primary-light);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .main-header {
+    padding: 1rem;
+    
+    .header-content h1 {
+      font-size: 1.5rem;
+    }
+    
+    .main-nav a {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.875rem;
+    }
+  }
+  
+  .main-content {
+    padding: 1rem;
+  }
+}

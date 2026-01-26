@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { CounterComponent } from './counter.component';
 
 describe('CounterComponent', () => {
@@ -18,7 +18,7 @@ describe('CounterComponent', () => {
   });
 
   // ============================================
-  // 🏗️ SECTION 1: Component Initialization Tests
+  //  SECTION 1: Component Initialization Tests
   // ============================================
   describe('Initialization', () => {
     it('should create the component', () => {
@@ -41,7 +41,7 @@ describe('CounterComponent', () => {
   });
 
   // ============================================
-  // 🖱️ SECTION 2: Button Click Tests
+  //  SECTION 2: Button Click Tests
   // ============================================
   describe('Button Clicks', () => {
     it('should increment counter when increment button is clicked', () => {
@@ -120,7 +120,7 @@ describe('CounterComponent', () => {
   });
 
   // ============================================
-  // 📊 SECTION 4: Status Message Tests
+  //  SECTION 4: Status Message Tests
   // ============================================
   describe('Status Messages', () => {
     it('should show "Counter is low" when count is 1-4', () => {
@@ -152,7 +152,7 @@ describe('CounterComponent', () => {
   });
 
   // ============================================
-  // ⌨️ SECTION 5: Input Interaction Tests
+  //  SECTION 5: Input Interaction Tests
   // ============================================
   describe('Custom Amount Input', () => {
     it('should have default custom amount of 1', () => {
@@ -197,7 +197,7 @@ describe('CounterComponent', () => {
   });
 
   // ============================================
-  // 🔄 SECTION 6: Integration Scenario Tests
+  //  SECTION 6: Integration Scenario Tests
   // ============================================
   describe('User Scenarios', () => {
     it('should handle a complete user interaction flow', () => {
@@ -237,6 +237,95 @@ describe('CounterComponent', () => {
       expect(title.nativeElement.textContent).toContain('Counter: 8');
       expect(status.nativeElement.textContent).toContain('Counter is medium');
       expect(status.nativeElement.classList).toContain('status-medium');
+    });
+  });
+
+  // ============================================
+  //  SECTION 7: Signal Input Tests
+  // ============================================
+  describe('Signal Inputs', () => {
+    it('should use custom initial value', async () => {
+      // Create new component with input
+      const newFixture = TestBed.createComponent(CounterComponent);
+      newFixture.componentRef.setInput('initialValue', 10);
+      newFixture.detectChanges();
+      await newFixture.whenStable();
+      
+      expect(newFixture.componentInstance.count()).toBe(10);
+    });
+
+    it('should increment by custom step', () => {
+      fixture.componentRef.setInput('step', 5);
+      fixture.detectChanges();
+      
+      component.increment();
+      
+      expect(component.count()).toBe(5);
+    });
+
+    it('should decrement by custom step', () => {
+      fixture.componentRef.setInput('step', 3);
+      component.count.set(10);
+      fixture.detectChanges();
+      
+      component.decrement();
+      
+      expect(component.count()).toBe(7);
+    });
+  });
+
+  // ============================================
+  //  SECTION 8: Output Event Tests
+  // ============================================
+  describe('Output Events', () => {
+    it('should emit valueChanged on increment', () => {
+      const spy = vi.fn();
+      component.valueChanged.subscribe(spy);
+      
+      component.increment();
+      
+      expect(spy).toHaveBeenCalledWith(1);
+    });
+
+    it('should emit valueChanged on decrement', () => {
+      component.count.set(5);
+      const spy = vi.fn();
+      component.valueChanged.subscribe(spy);
+      
+      component.decrement();
+      
+      expect(spy).toHaveBeenCalledWith(4);
+    });
+
+    it('should emit valueChanged on reset', () => {
+      component.count.set(10);
+      const spy = vi.fn();
+      component.valueChanged.subscribe(spy);
+      
+      component.reset();
+      
+      expect(spy).toHaveBeenCalledWith(0);
+    });
+
+    it('should emit valueChanged on addCustomAmount', () => {
+      component.customAmount.set(7);
+      const spy = vi.fn();
+      component.valueChanged.subscribe(spy);
+      
+      component.addCustomAmount();
+      
+      expect(spy).toHaveBeenCalledWith(7);
+    });
+
+    it('should emit correct sequence of values', () => {
+      const emittedValues: number[] = [];
+      component.valueChanged.subscribe(v => emittedValues.push(v));
+      
+      component.increment();  // 1
+      component.increment();  // 2
+      component.decrement();  // 1
+      
+      expect(emittedValues).toEqual([1, 2, 1]);
     });
   });
 });
