@@ -505,6 +505,15 @@ export class CalculatorPlaygroundComponent {
       }
     },
     {
+      name: '❌ add(0.1, 0.2) devrait retourner 0.3',
+      description: '⚠️ ÉCHEC ATTENDU : En JavaScript, 0.1 + 0.2 = 0.30000000000000004 à cause de la représentation en virgule flottante IEEE 754. Ce test montre pourquoi il faut utiliser une tolérance (toBeCloseTo) pour comparer les nombres décimaux !',
+      testFn: () => {
+        const actual = this.calculator.add(0.1, 0.2);
+        // This will FAIL because 0.1 + 0.2 !== 0.3 in JavaScript (floating point precision)
+        return { expected: 0.3, actual, passed: actual === 0.3 };
+      }
+    },
+    {
       name: 'divide(15, 3) devrait retourner 5',
       description: 'Test de division',
       testFn: () => {
