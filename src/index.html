@@ -1,13 +1,30 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="utf-8">
-  <title>Guard</title>
+  <title>Tests Unitaires Angular - Guide Pratique avec Vitest</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Apprenez à écrire des tests unitaires Angular robustes avec Vitest. Tutoriel interactif couvrant les composants, services, tests asynchrones et mocking.">
+  <meta name="theme-color" content="#dd0031">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  
+  <!-- Preconnect to improve performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
-  <app-root></app-root>
+  <app-root>
+    <!-- Loading indicator for accessibility -->
+    <div role="status" aria-live="polite" style="display: flex; align-items: center; justify-content: center; height: 100vh; font-family: system-ui, sans-serif;">
+      <span>Chargement de l'application...</span>
+    </div>
+  </app-root>
+  <noscript>
+    <div role="alert" style="padding: 2rem; text-align: center; font-family: system-ui, sans-serif;">
+      <h1>JavaScript requis</h1>
+      <p>Cette application nécessite JavaScript pour fonctionner. Veuillez l'activer dans votre navigateur.</p>
+    </div>
+  </noscript>
 </body>
 </html>

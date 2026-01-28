@@ -1,59 +1,141 @@
-# Guard
+# Tests Unitaires Angular - Guide Pratique avec Vitest
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.8.
+[![Angular](https://img.shields.io/badge/Angular-20.3-dd0031)](https://angular.dev)
+[![Vitest](https://img.shields.io/badge/Vitest-3.1-6E9F18)](https://vitest.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178c6)](https://www.typescriptlang.org/)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-## Development server
+Tutoriel interactif pour apprendre les tests unitaires Angular avec Vitest. Des concepts de base aux patterns avancés, apprenez à écrire des tests robustes et maintenables.
 
-To start a local development server, run:
+##  Fonctionnalités
 
-```bash
-ng serve
-```
+- **Tutoriel progressif** : Du débutant à l'avancé
+- **Exemples interactifs** : Testez en temps réel dans le navigateur
+- **Pattern AAA** : Arrange-Act-Assert expliqué avec des exemples
+- **Tests de services** : Isolation et mocking
+- **Tests de composants** : TestBed, fixtures, et interactions DOM
+- **Tests asynchrones** : fakeAsync, tick, et observables
+- **Mocking avancé** : Espions, stubs, et fakes
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+##  Installation
 
 ```bash
-ng generate --help
+# Cloner le dépôt
+git clone https://github.com/YaakoubiMohamed/angular-unit-test.git
+cd angular-unit-test
+
+# Installer les dépendances
+npm install
 ```
 
-## Building
+##  Scripts Disponibles
 
-To build the project run:
+| Commande | Description |
+|----------|-------------|
+| `npm start` | Démarre le serveur de développement |
+| `npm run build` | Build de production optimisé |
+| `npm test` | Lance les tests unitaires avec Vitest |
+| `npm run test:watch` | Tests en mode watch |
+| `npm run test:ui` | Interface Vitest UI |
+| `npm run test:coverage` | Rapport de couverture de code |
+| `npm run lint` | Analyse statique avec ESLint |
+| `npm run lint:fix` | Correction automatique des erreurs de lint |
+| `npm run format` | Formatage du code avec Prettier |
+
+##  Structure du Projet
+
+```
+src/
+├── app/
+│   ├── components/          # Composants réutilisables avec tests
+│   │   ├── counter/
+│   │   └── login-form/
+│   ├── pages/               # Pages du tutoriel
+│   │   ├── home/            # Page d'accueil
+│   │   ├── concepts/        # Fondamentaux (AAA pattern)
+│   │   ├── services/        # Tests de services
+│   │   ├── components/      # Tests de composants
+│   │   ├── async/           # Tests asynchrones
+│   │   ├── mocking/         # Mocking et espions
+│   │   └── playground/      # Exemples pratiques
+│   └── services/            # Services avec tests
+│       ├── calculator.service.ts
+│       ├── discount.service.ts
+│       └── temperature.service.ts
+└── docs/                    # Documentation supplémentaire
+```
+
+##  Modules du Cours
+
+### 1. Concepts Fondamentaux
+- Pattern AAA (Arrange-Act-Assert)
+- Structure des fichiers de test
+- Bonnes pratiques
+
+### 2. Tests de Services
+- Tests unitaires sans TestBed
+- Isolation des dépendances
+- Couverture des cas limites
+
+### 3. Tests de Composants
+- Configuration TestBed
+- Requêtes DOM avec DebugElement
+- Événements utilisateur
+- Entrées/Sorties (Input/Output)
+
+### 4. Tests Asynchrones
+- `fakeAsync` et `tick()`
+- `waitForAsync`
+- Testing HTTP avec `HttpClientTestingModule`
+- Observables RxJS
+
+### 5. Mocking et Espions
+- `vi.fn()` et `vi.spyOn()`
+- Mock de services
+- Injection de dépendances
+
+##  Bonnes Pratiques Appliquées
+
+- ✅ **TypeScript strict mode** activé
+- ✅ **ESLint** avec règles Angular et accessibilité
+- ✅ **Lazy loading** pour toutes les routes
+- ✅ **PreloadAllModules** pour une navigation fluide
+- ✅ **Accessibilité** : ARIA, navigation clavier, skip links
+- ✅ **Performance** : Optimisations de build, caching Netlify
+- ✅ **Tests AAA** : Pattern clairement documenté
+- ✅ **Composants standalone** : Architecture moderne Angular
+
+##  Lancer les Tests
 
 ```bash
-ng build
+# Tests avec output minimal
+npm test
+
+# Tests en mode watch (développement)
+npm run test:watch
+
+# Interface graphique Vitest
+npm run test:ui
+
+# Couverture de code
+npm run test:coverage
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+##  Couverture de Code
 
-## Running unit tests
+Le rapport de couverture est généré dans le dossier `coverage/`. Ouvrez `coverage/index.html` pour une vue détaillée.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+##  Ressources
 
-```bash
-ng test
-```
+- [Documentation Angular - Testing](https://angular.dev/guide/testing)
+- [Vitest Documentation](https://vitest.dev/)
+- [Angular Style Guide](https://angular.dev/style-guide)
+- [RxJS Testing](https://rxjs.dev/guide/testing/marble-testing)
 
-## Running end-to-end tests
+##  Contribution
 
-For end-to-end (e2e) testing, run:
+Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou une pull request.
 
-```bash
-ng e2e
-```
+##  Licence
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+MIT © [Mohamed Yaakoubi](https://github.com/YaakoubiMohamed)

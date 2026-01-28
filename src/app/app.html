@@ -1,22 +1,23 @@
-<header class="main-header">
+<header class="main-header" role="banner">
   <div class="header-content">
     <h1> Tests Unitaires Angular</h1>
   </div>
-  <nav class="main-nav">
-    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"> Accueil</a>
+  <nav class="main-nav" role="navigation" aria-label="Navigation principale">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" aria-current="page"> Accueil</a>
     <a routerLink="/concepts" routerLinkActive="active"> Concepts</a>
     <a routerLink="/services" routerLinkActive="active"> Services</a>
     <a routerLink="/components" routerLinkActive="active"> Composants</a>
-    <span class="nav-disabled" title="Bientôt disponible"> Async 🔒</span>
-    <span class="nav-disabled" title="Bientôt disponible"> Mocking 🔒</span>
+    <a routerLink="/async" routerLinkActive="active"> Async</a>
+    <a routerLink="/mocking" routerLinkActive="active"> Mocking</a>
     <a routerLink="/playground" routerLinkActive="active"> Exemple Pratique</a>
   </nav>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 </header>
 
-<main class="main-content">
+<main id="main-content" class="main-content" role="main">
   <router-outlet />
 </main>
 
-<footer class="main-footer">
+<footer class="main-footer" role="contentinfo">
   <p>Créé avec Angular {{ angularVersion }} + Vitest </p>
 </footer>

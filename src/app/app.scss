@@ -118,6 +118,35 @@
   }
 }
 
+/* Skip link for keyboard accessibility */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--angular-gradient);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  z-index: 1000;
+  text-decoration: none;
+  transition: top 0.3s;
+
+  &:focus {
+    top: 1rem;
+    outline: 3px solid var(--angular-pink);
+    outline-offset: 2px;
+  }
+}
+
+/* Focus styles for better keyboard navigation */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--angular-pink);
+  outline-offset: 2px;
+}
+
 @media (max-width: 768px) {
   .main-header {
     padding: 1rem;
@@ -134,5 +163,17 @@
   
   .main-content {
     padding: 1rem;
+  }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
