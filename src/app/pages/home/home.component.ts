@@ -595,6 +595,7 @@ export class HomeComponent {
       description: 'TestBed, fixtures et interactions DOM',
       route: '/components',
       topics: ['TestBed', 'Fixtures', 'Requêtes DOM', 'Événements Utilisateur'],
+      disabled: true
     },
     {
       title: 'Tests Asynchrones',
