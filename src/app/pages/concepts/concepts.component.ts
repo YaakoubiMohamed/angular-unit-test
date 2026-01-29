@@ -8,7 +8,6 @@ interface Concept {
 
 @Component({
   selector: 'app-concepts',
-  standalone: true,
   imports: [],
   template: `
     <div class="concepts-container">

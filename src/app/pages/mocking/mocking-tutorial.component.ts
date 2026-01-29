@@ -2,7 +2,6 @@ import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-mocking-tutorial',
-  standalone: true,
   template: `
     <div class="mocking-container">
       <header class="page-header">

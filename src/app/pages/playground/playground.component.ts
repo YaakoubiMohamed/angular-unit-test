@@ -5,7 +5,6 @@ import { LoginFormComponent, LoginCredentials } from '../../components/login-for
 
 @Component({
   selector: 'app-playground',
-  standalone: true,
   imports: [CounterComponent, LoginFormComponent, JsonPipe],
   template: `
     <div class="playground-container">

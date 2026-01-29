@@ -11,7 +11,6 @@ interface TutorialSection {
 
 @Component({
   selector: 'app-home',
-  standalone: true,
   imports: [RouterLink],
   template: `
     <div class="home-container">

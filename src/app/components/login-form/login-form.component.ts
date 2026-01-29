@@ -1,5 +1,4 @@
 import { Component, signal, output } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 export interface LoginCredentials {
@@ -9,8 +8,7 @@ export interface LoginCredentials {
 
 @Component({
   selector: 'app-login-form',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [FormsModule],
   template: `
     <form (ngSubmit)="onSubmit()" data-testid="login-form">
       <h2>Login</h2>
@@ -25,12 +23,11 @@ export interface LoginCredentials {
           name="email"
           (blur)="validateEmail()"
           [class.error]="emailError()">
-        <span 
-          data-testid="email-error" 
-          class="error-message" 
-          *ngIf="emailError()">
-          {{ emailError() }}
-        </span>
+        @if (emailError()) {
+          <span data-testid="email-error" class="error-message">
+            {{ emailError() }}
+          </span>
+        }
       </div>
       
       <div class="form-group">
@@ -43,12 +40,11 @@ export interface LoginCredentials {
           name="password"
           (blur)="validatePassword()"
           [class.error]="passwordError()">
-        <span 
-          data-testid="password-error" 
-          class="error-message" 
-          *ngIf="passwordError()">
-          {{ passwordError() }}
-        </span>
+        @if (passwordError()) {
+          <span data-testid="password-error" class="error-message">
+            {{ passwordError() }}
+          </span>
+        }
       </div>
       
       <div class="form-group">
@@ -69,12 +65,11 @@ export interface LoginCredentials {
         {{ isLoading() ? 'Logging in...' : 'Login' }}
       </button>
       
-      <div 
-        data-testid="success-message" 
-        class="success-message" 
-        *ngIf="successMessage()">
-        {{ successMessage() }}
-      </div>
+      @if (successMessage()) {
+        <div data-testid="success-message" class="success-message">
+          {{ successMessage() }}
+        </div>
+      }
     </form>
   `,
   styles: [`

@@ -2,7 +2,6 @@ import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-async-testing',
-  standalone: true,
   template: `
     <div class="async-container">
       <header class="page-header">

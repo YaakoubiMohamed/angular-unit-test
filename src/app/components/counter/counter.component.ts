@@ -1,10 +1,8 @@
 import { Component, signal, computed, input, output, effect } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-counter',
-  standalone: true,
-  imports: [CommonModule],
+  imports: [],
   template: `
     <div class="counter-container">
       <h2 data-testid="title">Counter: {{ count() }}</h2>

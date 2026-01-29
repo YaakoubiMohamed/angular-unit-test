@@ -1,5 +1,4 @@
-import { Component, Input, signal, computed } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, input, signal, computed } from '@angular/core';
 import { AssertionResult, formatValue } from '../../utils/browser-test-utils';
 
 export interface InteractiveTest {
@@ -19,12 +18,11 @@ interface TestResult {
 
 @Component({
   selector: 'app-interactive-test-runner',
-  standalone: true,
-  imports: [CommonModule],
+  imports: [],
   template: `
     <div class="test-runner">
       <div class="runner-header">
-        <h3>{{ title }}</h3>
+        <h3>{{ title() }}</h3>
         <div class="controls">
           <button class="btn-run-all" (click)="runAllTests()">
             Exécuter Tous
@@ -35,14 +33,16 @@ interface TestResult {
         </div>
       </div>
 
-      <div class="test-stats" *ngIf="hasResults()">
-        <span class="stat pass">{{ passedCount() }} réussi(s)</span>
-        <span class="stat fail">{{ failedCount() }} échoué(s)</span>
-        <span class="stat time">{{ totalTime() }}ms</span>
-      </div>
+      @if (hasResults()) {
+        <div class="test-stats">
+          <span class="stat pass">{{ passedCount() }} réussi(s)</span>
+          <span class="stat fail">{{ failedCount() }} échoué(s)</span>
+          <span class="stat time">{{ totalTime() }}ms</span>
+        </div>
+      }
 
       <div class="tests-list">
-        @for (test of tests; track test.name; let i = $index) {
+        @for (test of tests(); track test.name; let i = $index) {
           <div 
             class="test-item" 
             [class.passed]="results()[i]?.passed" 
@@ -315,8 +315,9 @@ interface TestResult {
   `]
 })
 export class InteractiveTestRunnerComponent {
-  @Input() title = 'Interactive Test Runner';
-  @Input() tests: InteractiveTest[] = [];
+  // Signal inputs (Angular 21)
+  title = input('Interactive Test Runner');
+  tests = input<InteractiveTest[]>([]);
   
   results = signal<(TestResult | null)[]>([]);
 
@@ -328,7 +329,7 @@ export class InteractiveTestRunnerComponent {
   );
 
   runSingleTest(index: number): void {
-    const test = this.tests[index];
+    const test = this.tests()[index];
     if (!test) return;
     
     const start = performance.now();
@@ -375,7 +376,7 @@ export class InteractiveTestRunnerComponent {
     // Reset first
     this.results.set([]);
     // Run each test with a small delay for visual effect
-    this.tests.forEach((_, i) => {
+    this.tests().forEach((_, i) => {
       setTimeout(() => this.runSingleTest(i), i * 100);
     });
   }

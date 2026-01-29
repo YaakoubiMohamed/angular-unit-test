@@ -37,7 +37,6 @@ interface TrickyScenario {
 
 @Component({
   selector: 'app-service-testing',
-  standalone: true,
   imports: [CalculatorPlaygroundComponent],
   template: `
     <div class="services-container">

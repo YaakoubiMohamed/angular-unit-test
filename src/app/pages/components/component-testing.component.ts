@@ -20,7 +20,6 @@ interface BestPractice {
 
 @Component({
   selector: 'app-component-testing',
-  standalone: true,
   imports: [CounterPlaygroundComponent],
   template: `
     <div class="component-testing-container">

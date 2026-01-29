@@ -1,12 +1,10 @@
 import { Component, signal, computed, effect, ViewChild, ElementRef } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { InteractiveTestRunnerComponent, InteractiveTest } from '../../../shared/components/interactive-test-runner/interactive-test-runner.component';
 
 @Component({
   selector: 'app-counter-playground',
-  standalone: true,
-  imports: [CommonModule, FormsModule, InteractiveTestRunnerComponent],
+  imports: [FormsModule, InteractiveTestRunnerComponent],
   template: `
     <div class="playground">
       <div class="playground-header">
