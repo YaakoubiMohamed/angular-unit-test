@@ -1,7 +1,7 @@
 # Tests Unitaires Angular - Guide Pratique avec Vitest
 
-[![Angular](https://img.shields.io/badge/Angular-20.3-dd0031)](https://angular.dev)
-[![Vitest](https://img.shields.io/badge/Vitest-3.1-6E9F18)](https://vitest.dev)
+[![Angular](https://img.shields.io/badge/Angular-21.1-dd0031)](https://angular.dev)
+[![Vitest](https://img.shields.io/badge/Vitest-4.0-6E9F18)](https://vitest.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178c6)](https://www.typescriptlang.org/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
@@ -136,6 +136,3 @@ Le rapport de couverture est généré dans le dossier `coverage/`. Ouvrez `cove
 
 Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou une pull request.
 
-##  Licence
-
-MIT © [Mohamed Yaakoubi](https://github.com/YaakoubiMohamed)

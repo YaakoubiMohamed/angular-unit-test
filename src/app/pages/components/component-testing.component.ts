@@ -379,12 +379,13 @@ btn.<span class="code-function">triggerEventHandler</span>(<span class="code-str
         <section class="tab-content animate-fade-in">
           <h2> Tester les Entrées et Sorties</h2>
           <p class="section-intro">
-            Les composants communiquent via &#64;Input() et &#64;Output(). Voici comment les tester correctement.
+            Les composants communiquent via <code>input()</code> et <code>output()</code> (signaux recommandés en Angular 21+) 
+            ou via les décorateurs &#64;Input()/&#64;Output() (legacy mais toujours supportés). Voici comment les tester.
           </p>
 
           <div class="io-examples">
             <div class="io-card card">
-              <h4> Tester &#64;Input()</h4>
+              <h4> Tester &#64;Input() (Legacy)</h4>
               <pre><code><span class="code-comment">// Composant sous test</span>
 <span class="code-decorator">&#64;Component</span>(&#123;...&#125;)
 <span class="code-keyword">export class</span> <span class="code-class">UserCardComponent</span> &#123;
@@ -410,7 +411,7 @@ btn.<span class="code-function">triggerEventHandler</span>(<span class="code-str
             </div>
 
             <div class="io-card card">
-              <h4> Tester &#64;Output() avec EventEmitter</h4>
+              <h4> Tester &#64;Output() avec EventEmitter (Legacy)</h4>
               <pre><code><span class="code-comment">// Composant sous test</span>
 <span class="code-decorator">&#64;Component</span>(&#123;...&#125;)
 <span class="code-keyword">export class</span> <span class="code-class">DeleteButtonComponent</span> &#123;
@@ -438,7 +439,7 @@ btn.<span class="code-function">triggerEventHandler</span>(<span class="code-str
             </div>
 
             <div class="io-card card">
-              <h4>🆕 Tester les Entrées signal() (Angular 17+)</h4>
+              <h4>🆕 Tester les Entrées signal() (Recommandé Angular 21+)</h4>
               <pre><code><span class="code-comment">// Composant avec entrées signal</span>
 <span class="code-decorator">&#64;Component</span>(&#123;...&#125;)
 <span class="code-keyword">export class</span> <span class="code-class">ModernComponent</span> &#123;
@@ -459,7 +460,7 @@ btn.<span class="code-function">triggerEventHandler</span>(<span class="code-str
             </div>
 
             <div class="io-card card">
-              <h4>🆕 Tester les Sorties output() Signals (Angular 17+)</h4>
+              <h4>🆕 Tester les Sorties output() Signals (Recommandé Angular 21+)</h4>
               <pre><code><span class="code-comment">// Composant avec sorties signal</span>
 <span class="code-decorator">&#64;Component</span>(&#123;...&#125;)
 <span class="code-keyword">export class</span> <span class="code-class">ModernComponent</span> &#123;
@@ -1326,7 +1327,7 @@ fixture.<span class="code-function">detectChanges</span>(); <span class="code-co
     },
     {
       title: 'Utilisez setInput() pour les Signal Inputs',
-      description: 'Avec Angular 17+, utilisez fixture.componentRef.setInput() pour définir les entrées signal plutôt que d\'affecter directement.',
+      description: 'En Angular 21, utilisez fixture.componentRef.setInput() pour définir les entrées signal plutôt que d\'affecter directement.',
       doExample: `fixture.componentRef.<span class="code-function">setInput</span>(<span class="code-string">'count'</span>, <span class="code-number">5</span>);
 fixture.<span class="code-function">detectChanges</span>();`,
       dontExample: `<span class="code-comment">// Ne fonctionne pas avec input()</span>
@@ -1451,9 +1452,9 @@ component.count = <span class="code-number">5</span>;`
     },
     {
       id: 'signal-inputs',
-      title: 'Signal Inputs (Angular 17+)',
+      title: 'Signal Inputs (Recommandé Angular 21)',
       difficulty: 'intermediate',
-      problem: 'Comment tester les composants utilisant la nouvelle API input() et output() de Angular 17+ ? L\'affectation directe ne fonctionne pas.',
+      problem: 'Comment tester les composants utilisant l\'API input() et output() recommandée en Angular 21 ? L\'affectation directe ne fonctionne pas.',
       solution: 'Utilisez fixture.componentRef.setInput() pour les signal inputs. Pour les outputs, abonnez-vous comme avec les EventEmitters classiques.',
       code: `<span class="code-comment">// Composant avec signal inputs</span>
 <span class="code-decorator">&#64;Component</span>(&#123;...&#125;)
