@@ -615,6 +615,12 @@ export class HomeComponent {
       description: 'Pratiquez avec des exemples en direct',
       route: '/playground',
       topics: ['Compteur', 'Formulaire Login', 'Calculatrice', 'Température'],
+    },
+    {
+      title: ' Mini Task Manager Tutorial',
+      description: 'Complete tutorial building a task manager with full test coverage',
+      route: '/tutorial',
+      topics: ['Theory & Concepts', 'Step-by-Step Implementation', 'Tips & Best Practices', 'Live Demo'],
     }
   ];
 

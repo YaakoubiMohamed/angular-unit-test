@@ -37,5 +37,36 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/playground/playground.component').then(m => m.PlaygroundComponent),
     title: 'Playground - Tests Unitaires Angular'
   },
+  // Mini Task Manager Tutorial
+  {
+    path: 'tutorial',
+    children: [
+      {
+        path: '',
+        redirectTo: 'theory',
+        pathMatch: 'full'
+      },
+      {
+        path: 'theory',
+        loadComponent: () => import('./features/task-manager/pages/theory/task-manager-theory.component').then(m => m.TaskManagerTheoryComponent),
+        title: 'Theory - Task Manager Tutorial'
+      },
+      {
+        path: 'practical',
+        loadComponent: () => import('./features/task-manager/pages/practical/task-manager-practical.component').then(m => m.TaskManagerPracticalComponent),
+        title: 'Practical - Task Manager Tutorial'
+      },
+      {
+        path: 'tips',
+        loadComponent: () => import('./features/task-manager/pages/tips/task-manager-tips.component').then(m => m.TaskManagerTipsComponent),
+        title: 'Tips & Best Practices - Task Manager Tutorial'
+      },
+      {
+        path: 'demo',
+        loadComponent: () => import('./features/task-manager/task-manager.component').then(m => m.TaskManagerComponent),
+        title: 'Demo - Task Manager Tutorial'
+      }
+    ]
+  },
   { path: '**', redirectTo: '' }
 ];

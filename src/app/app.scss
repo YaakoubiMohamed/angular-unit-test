@@ -70,6 +70,21 @@
         border-color: transparent;
         font-weight: 600;
       }
+      
+      &.tutorial-link {
+        background: linear-gradient(135deg, rgba(250, 204, 21, 0.15), rgba(245, 158, 11, 0.15));
+        color: #ca8a04;
+        border: 1px solid rgba(250, 204, 21, 0.3);
+        
+        &:hover {
+          background: linear-gradient(135deg, rgba(250, 204, 21, 0.25), rgba(245, 158, 11, 0.25));
+        }
+        
+        &.active {
+          background: linear-gradient(135deg, #facc15, #f59e0b);
+          color: #1f2937;
+        }
+      }
     }
     
     .nav-disabled {
